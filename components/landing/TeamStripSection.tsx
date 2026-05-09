@@ -81,13 +81,12 @@ export default function TeamStripSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
           >
-            <Link
-              href="/team"
-              className="text-sm flex items-center gap-1 transition-opacity hover:opacity-70"
+            <span
+              className="text-sm opacity-40 cursor-not-allowed"
               style={{ color: "var(--color-primary)" }}
             >
               Meet the full team →
-            </Link>
+            </span>
           </motion.div>
         </div>
 
