@@ -90,13 +90,37 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="hidden lg:flex items-center justify-center"
         >
-          <div
-            className="w-80 h-80 rounded-full flex items-center justify-center"
-            style={{ backgroundColor: "var(--color-primary-light)" }}
-          >
+          <div className="relative w-80 h-80">
+            {/* Outer ring */}
             <div
-              className="w-52 h-52 rounded-full animate-pulse"
-              style={{ backgroundColor: "var(--color-primary)", opacity: 0.18 }}
+              className="absolute inset-0 rounded-full border-2"
+              style={{ borderColor: "var(--color-primary)", opacity: 0.15 }}
+            />
+            {/* Middle ring — slow pulse */}
+            <motion.div
+              className="absolute inset-6 rounded-full border"
+              style={{ borderColor: "var(--color-primary)", opacity: 0.25 }}
+              animate={{ scale: [1, 1.03, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Inner filled circle */}
+            <div
+              className="absolute inset-16 rounded-full"
+              style={{ backgroundColor: "var(--color-primary)", opacity: 0.12 }}
+            />
+            {/* Center dot */}
+            <div
+              className="absolute inset-[46%] rounded-full"
+              style={{ backgroundColor: "var(--color-primary)", opacity: 0.6 }}
+            />
+            {/* Cross lines — dermoscope look */}
+            <div
+              className="absolute top-1/2 left-8 right-8 h-px -translate-y-1/2"
+              style={{ backgroundColor: "var(--color-primary)", opacity: 0.12 }}
+            />
+            <div
+              className="absolute left-1/2 top-8 bottom-8 w-px -translate-x-1/2"
+              style={{ backgroundColor: "var(--color-primary)", opacity: 0.12 }}
             />
           </div>
         </motion.div>

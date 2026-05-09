@@ -67,6 +67,9 @@ export default function TeamStripSection() {
                 fontSize: "var(--text-xl)",
                 color: "var(--color-text)",
                 lineHeight: 1.2,
+                whiteSpace: "normal",
+                wordBreak: "break-word",
+                overflow: "visible",
               }}
             >
               Built at Ramdeobaba University, Nagpur

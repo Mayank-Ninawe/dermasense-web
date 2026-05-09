@@ -101,6 +101,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
 }
 
+/* Ensure headings are not clipped by clipPath-based animations */
+h1, h2, h3 { overflow: visible; }
+
 p, li { text-wrap: pretty; max-width: 72ch; }
 
 img, video { display: block; max-width: 100%; height: auto; }
@@ -117,4 +120,9 @@ img, video { display: block; max-width: 100%; height: auto; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Section spacing — consistent rhythm */
+section {
+  scroll-margin-top: 4rem;
 }

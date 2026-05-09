@@ -147,7 +147,7 @@ export default function BiasCorrectionSection() {
         style={{ maxWidth: "var(--content-wide)" }}
       >
         {/* Section header */}
-        <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
+        <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-end" style={{ overflow: "visible" }}>
           <div>
             <motion.p
               initial={{ opacity: 0 }}
@@ -168,6 +168,8 @@ export default function BiasCorrectionSection() {
                 fontSize: "var(--text-xl)",
                 color: "var(--color-text)",
                 lineHeight: 1.2,
+                whiteSpace: "normal",
+                wordBreak: "break-word",
               }}
             >
               The dataset problem — and how we fixed it
