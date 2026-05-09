@@ -51,7 +51,7 @@ function PipelineStep({
         <motion.div
           initial={{ opacity: 0, scale: 0.6 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.4, delay: index * 0.05 }}
           className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 z-10"
           style={{
@@ -71,7 +71,7 @@ function PipelineStep({
           <motion.div
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.5, delay: index * 0.05 + 0.2 }}
             className="w-px flex-1 mt-2"
             style={{
@@ -88,7 +88,7 @@ function PipelineStep({
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.5, delay: index * 0.05 + 0.1 }}
         className="pb-12"
       >
