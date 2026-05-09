@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function HeroSection() {
   return (
     <section
-      className="min-h-[90vh] flex items-center pt-16 px-6"
+      className="flex items-center pt-20 pb-8 px-6"
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <div

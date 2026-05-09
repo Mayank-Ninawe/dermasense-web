@@ -94,8 +94,8 @@ function PipelineStep({
 
       {/* Right — content */}
       <motion.div
-        initial={{ opacity: 0, x: 16 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5, delay: index * 0.1 + 0.1 }}
         className="pb-12"
       >

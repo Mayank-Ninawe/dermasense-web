@@ -72,7 +72,7 @@ function CountUpStat({ number, label, source, index }: {
 
 export default function ProblemSection() {
   const headingRef = useRef(null);
-  const headingInView = useInView(headingRef, { once: true, margin: "-60px" });
+  const headingInView = useInView(headingRef, { once: true, margin: "0px" });
 
   return (
     <section
