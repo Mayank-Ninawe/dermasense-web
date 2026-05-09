@@ -4,9 +4,17 @@ import { ExternalLink } from "lucide-react";
 export default function Footer() {
   const navLinks = ["/analyze", "/about", "/faq"];
 
-  function capitalizeFirst(str: string): string {
-    return str.replace("/", "").replace(/^(\w)/, (c: string) => c.toUpperCase());
-  }
+  // Yeh function replace karo
+function capitalizeFirst(str: string): string {
+  const name = str.replace("/", "");
+  if (name.toUpperCase() === name.toUpperCase() && name === "faq") return "FAQ";
+  const map: Record<string, string> = {
+    analyze: "Analyze",
+    about: "About",
+    faq: "FAQ",
+  };
+  return map[name] || name;
+}
 
   return (
     <footer className="border-t bg-[var(--color-surface-offset)]"

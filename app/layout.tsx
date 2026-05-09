@@ -42,7 +42,7 @@ export default function RootLayout({
       </head>
       <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
         <Navbar />
-        <main>
+        <main className="overflow-x-hidden min-h-screen">
           <TooltipProvider>
             {children}
           </TooltipProvider>
