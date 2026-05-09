@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 // Satoshi is from Fontshare — loaded via CSS, not next/font
 const instrumentSerif = Instrument_Serif({
@@ -39,9 +41,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
+        <Navbar />
+        <main>
+          <TooltipProvider>
+            {children}
+          </TooltipProvider>
+        </main>
+        <Footer />
       </body>
     </html>
   );
