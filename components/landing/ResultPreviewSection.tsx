@@ -58,7 +58,7 @@ export default function ResultPreviewSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 px-6"
+      className="py-24 px-6 pb-32"
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <div

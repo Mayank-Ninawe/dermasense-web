@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
 
 const steps = [
   {
@@ -44,43 +44,35 @@ function PipelineStep({
   index: number;
   isLast: boolean;
 }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-
   return (
-    <div ref={ref} className="relative flex gap-6 md:gap-10">
-      {/* Left — number + connector line */}
+    <div className="relative flex gap-6 md:gap-10">
+      {/* Left — number + connector */}
       <div className="flex flex-col items-center shrink-0">
-        {/* Step number circle */}
         <motion.div
           initial={{ opacity: 0, scale: 0.6 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.4, delay: index * 0.1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.4, delay: index * 0.05 }}
           className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 z-10"
           style={{
-            backgroundColor: inView
-              ? "var(--color-primary)"
-              : "var(--color-surface-offset)",
+            backgroundColor: "var(--color-primary)",
             border: "2px solid var(--color-primary)",
           }}
         >
           <span
             className="text-xs font-medium"
-            style={{
-              fontFamily: "var(--font-mono)",
-              color: "#ffffff",
-            }}
+            style={{ color: "#ffffff" }}
           >
             {step.number}
           </span>
         </motion.div>
 
-        {/* Connector line */}
         {!isLast && (
           <motion.div
             initial={{ scaleY: 0 }}
-            animate={inView ? { scaleY: 1 } : {}}
-            transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: index * 0.05 + 0.2 }}
             className="w-px flex-1 mt-2"
             style={{
               backgroundColor: "var(--color-primary)",
@@ -95,8 +87,9 @@ function PipelineStep({
       {/* Right — content */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.5, delay: index * 0.1 + 0.1 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5, delay: index * 0.05 + 0.1 }}
         className="pb-12"
       >
         <p
@@ -130,24 +123,19 @@ function PipelineStep({
 }
 
 export default function PipelineSection() {
-  const headingRef = useRef(null);
-  const headingInView = useInView(headingRef, { once: true, margin: "-60px" });
-
   return (
     <section
       className="py-24 px-6"
       style={{ backgroundColor: "var(--color-surface)" }}
     >
-      <div
-        className="mx-auto"
-        style={{ maxWidth: "var(--content-default)" }}
-      >
+      <div className="mx-auto" style={{ maxWidth: "var(--content-default)" }}>
         {/* Header */}
         <div className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
           <div>
             <motion.p
               initial={{ opacity: 0 }}
-              animate={headingInView ? { opacity: 1 } : {}}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.4 }}
               className="text-xs uppercase tracking-widest mb-4"
               style={{ color: "var(--color-text-faint)" }}
@@ -155,13 +143,9 @@ export default function PipelineSection() {
               How It Works
             </motion.p>
             <motion.h2
-              ref={headingRef}
               initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
-              animate={
-                headingInView
-                  ? { opacity: 1, clipPath: "inset(0 0% 0 0)" }
-                  : {}
-              }
+              whileInView={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 fontFamily: "var(--font-display)",
@@ -176,13 +160,11 @@ export default function PipelineSection() {
 
           <motion.p
             initial={{ opacity: 0 }}
-            animate={headingInView ? { opacity: 1 } : {}}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true , amount:0.1}}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-base"
-            style={{
-              color: "var(--color-text-muted)",
-              lineHeight: 1.7,
-            }}
+            style={{ color: "var(--color-text-muted)", lineHeight: 1.7 }}
           >
             DermaSense combines image intelligence with patient context — two
             streams of information fused into one trustworthy prediction.
