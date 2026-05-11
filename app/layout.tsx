@@ -1,29 +1,28 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-// Satoshi is from Fontshare — loaded via CSS, not next/font
-const instrumentSerif = Instrument_Serif({
-  weight: ["400"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-display",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  weight: ["400", "500"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-mono",
-});
-
 export const metadata: Metadata = {
   title: "DermaSense — AI Skin Disease Detection for India",
-  description: "Explainable multimodal AI for skin disease detection, optimized for Indian skin tones.",
+  description:
+    "An explainable multimodal AI system for skin disease detection, optimized for Indian skin tones. Built at Ramdeobaba University, Nagpur.",
+  keywords: [
+    "skin disease detection",
+    "AI dermatology",
+    "Indian skin tones",
+    "DermaCon-IN",
+    "Grad-CAM",
+    "explainable AI",
+  ],
+  openGraph: {
+    title: "DermaSense — AI Skin Disease Detection for India",
+    description:
+      "Multimodal AI combining dermoscopic images with patient metadata, optimized for Indian skin tones.",
+    siteName: "DermaSense",
+    locale: "en_IN",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -32,21 +31,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
-        {/* Satoshi from Fontshare */}
+        {/* Fonts */}
         <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
+      <body style={{ fontFamily: "Satoshi, 'Helvetica Neue', sans-serif" }}>
         <Navbar />
-        <main className="overflow-x-hidden min-h-screen">
-          <TooltipProvider>
-            {children}
-          </TooltipProvider>
-        </main>
+        <div id="main-content">{children}</div>
         <Footer />
       </body>
     </html>
