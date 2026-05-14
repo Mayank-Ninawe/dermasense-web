@@ -2,22 +2,35 @@
 import { useState } from "react";
 import AnalyzeForm from "../../components/analyze/AnalyzeForm";
 import AnalyzeResult from "../../components/analyze/AnalyzeResult";
-
 import type { FormData } from "@/components/analyze/types";
+import type { PredictResult } from "@/lib/api";
+import { predictDisease } from "@/lib/api";
 
 export default function AnalyzePage() {
   const [phase, setPhase] = useState<"form" | "loading" | "result">("form");
   const [formData, setFormData] = useState<FormData | null>(null);
+  const [result, setResult] = useState<PredictResult | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(data: FormData) {
+  async function handleSubmit(data: FormData, imageDataUrl: string) {
     setFormData(data);
+    setError(null);
     setPhase("loading");
-    // Simulate AI processing — 2.2 seconds
-    setTimeout(() => setPhase("result"), 2200);
+
+    try {
+      const prediction = await predictDisease(data, imageDataUrl);
+      setResult(prediction);
+      setPhase("result");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Inference failed.");
+      setPhase("form");
+    }
   }
 
   function handleReset() {
     setFormData(null);
+    setResult(null);
+    setError(null);
     setPhase("form");
   }
 
@@ -27,10 +40,30 @@ export default function AnalyzePage() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <div className="mx-auto" style={{ maxWidth: "var(--content-default)" }}>
-        {phase === "form" && <AnalyzeForm onSubmit={handleSubmit} />}
+        {phase === "form" && (
+          <>
+            {error && (
+              <div
+                className="mb-6 px-4 py-3 rounded-xl text-sm"
+                style={{
+                  backgroundColor: "var(--color-error-highlight)",
+                  color: "var(--color-error)",
+                  border: "1px solid var(--color-error)",
+                }}
+              >
+                ⚠ {error}
+              </div>
+            )}
+            <AnalyzeForm onSubmit={handleSubmit} />
+          </>
+        )}
         {phase === "loading" && <LoadingState />}
-        {phase === "result" && formData && (
-          <AnalyzeResult formData={formData} onReset={handleReset} />
+        {phase === "result" && formData && result && (
+          <AnalyzeResult
+            formData={formData}
+            result={result}
+            onReset={handleReset}
+          />
         )}
       </div>
     </main>
@@ -40,7 +73,6 @@ export default function AnalyzePage() {
 function LoadingState() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] gap-6">
-      {/* Pulsing dermoscope animation */}
       <div className="relative w-20 h-20">
         <div
           className="absolute inset-0 rounded-full border-2 animate-ping"
@@ -56,20 +88,13 @@ function LoadingState() {
         />
       </div>
       <div className="text-center">
-        <p
-          className="text-base font-medium mb-1"
-          style={{ color: "var(--color-text)" }}
-        >
+        <p className="text-base font-medium mb-1" style={{ color: "var(--color-text)" }}>
           Analyzing...
         </p>
-        <p
-          className="text-sm"
-          style={{ color: "var(--color-text-muted)" }}
-        >
+        <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
           Running multimodal inference
         </p>
       </div>
-      {/* Skeleton result preview */}
       <div
         className="w-full max-w-lg rounded-2xl p-6 mt-4"
         style={{

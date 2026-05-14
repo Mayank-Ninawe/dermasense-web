@@ -1,0 +1,135 @@
+,precision,recall,f1-score,support
+Dryness (xerosis),1.0,1.0,1.0,1.0
+Epidermolysis Bullosa Simplex,1.0,1.0,1.0,1.0
+Folliculitis Decalvans,1.0,1.0,1.0,1.0
+Chronic Bullous Disease of Childhood,1.0,1.0,1.0,1.0
+Chromoblastomycosis,1.0,1.0,1.0,1.0
+Basal Cell Carcinoma,1.0,1.0,1.0,1.0
+Varicella Zoster,1.0,1.0,1.0,1.0
+Psoriasis Vulgaris,1.0,1.0,1.0,1.0
+Scleroderma,1.0,1.0,1.0,1.0
+Sebaceous Cyst,1.0,1.0,1.0,1.0
+Pityriasis lichenoides chronica,1.0,1.0,1.0,1.0
+Verruca Vulgaris,1.0,1.0,1.0,2.0
+Diabetic Ulcer,1.0,1.0,1.0,1.0
+Darier's disease,1.0,1.0,1.0,1.0
+Lichen nitidus,1.0,1.0,1.0,2.0
+Lichenoid eruption,1.0,1.0,1.0,1.0
+Infected Keratoderma,1.0,1.0,1.0,1.0
+Mycetoma,1.0,1.0,1.0,1.0
+Hidradenitis,1.0,1.0,1.0,2.0
+Pemphigus vulgaris,1.0,1.0,1.0,5.0
+Pellagra dermatitis,1.0,1.0,1.0,1.0
+Oral Candidiasis,1.0,1.0,1.0,1.0
+Xerosis vulgaris,1.0,1.0,1.0,1.0
+Wart,1.0,1.0,1.0,3.0
+Urticaria,0.875,1.0,0.9333333333333333,7.0
+Vitiligo,0.8987341772151899,0.9594594594594594,0.9281045751633987,74.0
+Onychomycosis,0.8333333333333334,1.0,0.9090909090909091,5.0
+Scrotal Dermatitis,1.0,0.8333333333333334,0.9090909090909091,6.0
+Palmoplantar Keratoderma,0.75,1.0,0.8571428571428571,6.0
+Acrochordon,0.75,1.0,0.8571428571428571,3.0
+Tinea Capitis,1.0,0.75,0.8571428571428571,4.0
+Xerosis,0.8571428571428571,0.8571428571428571,0.8571428571428571,7.0
+Alopecia Areata,0.7333333333333333,1.0,0.8461538461538461,11.0
+Acne Conglobata,0.7777777777777778,0.875,0.8235294117647058,8.0
+Melasma,0.75,0.9,0.8181818181818182,10.0
+Tinea Cruris,0.7228915662650602,0.9230769230769231,0.8108108108108109,65.0
+Lichen Planus pigmentosus,0.6666666666666666,1.0,0.8,2.0
+Chronic plaque psoriasis,0.8,0.8,0.8,5.0
+Nodular Scabies,0.6666666666666666,1.0,0.8,4.0
+Guttate Psoriasis,1.0,0.6666666666666666,0.8,3.0
+Discoid Lupus Erythematosus,0.6666666666666666,1.0,0.8,2.0
+Pyoderma,0.7142857142857143,0.8333333333333334,0.7692307692307693,6.0
+Truncal Acne,0.75,0.75,0.75,4.0
+Lichen Planus,0.6666666666666666,0.75,0.7058823529411765,8.0
+Acne,0.5757575757575758,0.8636363636363636,0.6909090909090909,22.0
+Fixed Drug Eruption,1.0,0.5,0.6666666666666666,2.0
+Burn of skin,1.0,0.5,0.6666666666666666,2.0
+Chickenpox exanthem,1.0,0.5,0.6666666666666666,2.0
+Vasculitis,1.0,0.5,0.6666666666666666,2.0
+Prurigo nodularis,0.6666666666666666,0.6666666666666666,0.6666666666666666,3.0
+Ear Eczema,0.5,1.0,0.6666666666666666,1.0
+Keloid,0.5,1.0,0.6666666666666666,3.0
+Keratolysis Exfoliativa,0.5,1.0,0.6666666666666666,1.0
+Drug eruption,0.5,1.0,0.6666666666666666,1.0
+Scabies,0.5769230769230769,0.7142857142857143,0.6382978723404256,21.0
+Tinea Versicolor,0.6666666666666666,0.6,0.631578947368421,10.0
+Tinea Faciei,0.5714285714285714,0.7058823529411765,0.631578947368421,17.0
+Steroid Modified Tinea,0.6428571428571429,0.6,0.6206896551724138,15.0
+Psoriasis,0.5714285714285714,0.631578947368421,0.6,19.0
+Scabies Infected,0.6666666666666666,0.5,0.5714285714285714,4.0
+Eczema,0.5,0.65,0.5652173913043478,20.0
+Tinea Corporis,0.5609756097560976,0.5609756097560976,0.5609756097560976,41.0
+Herpes Zoster,0.42857142857142855,0.75,0.5454545454545454,4.0
+Candidal Intertrigo,0.5384615384615384,0.5384615384615384,0.5384615384615384,13.0
+Allergic Contact Dermatitis,1.0,0.3333333333333333,0.5,3.0
+Tinea Manuum,0.5,0.5,0.5,2.0
+Traction alopecia,0.5,0.5,0.5,2.0
+Furuncle,0.5,0.5,0.5,4.0
+Dermatosis Papulosa Nigra,1.0,0.3333333333333333,0.5,3.0
+Cheilitis,1.0,0.3333333333333333,0.5,3.0
+Infected Eczema,0.5714285714285714,0.4444444444444444,0.5,9.0
+Acne Scars,0.5,0.3333333333333333,0.4,3.0
+Atopic Dermatitis,0.5,0.3333333333333333,0.4,3.0
+Pruritic Urticarial Papules,0.3333333333333333,0.4,0.36363636363636365,5.0
+Seborrheic Dermatitis,0.5,0.2857142857142857,0.36363636363636365,7.0
+Candidal Vulvovaginitis,0.3333333333333333,0.3333333333333333,0.3333333333333333,3.0
+Polymorphous Light Eruption,0.5,0.25,0.3333333333333333,4.0
+Pityriasis Alba,0.5,0.25,0.3333333333333333,4.0
+Lichen Simplex Chronicus,0.3333333333333333,0.25,0.2857142857142857,4.0
+Topical Steroid Damaged Face,0.2857142857142857,0.25,0.26666666666666666,8.0
+No Definite Diagnosis,0.3333333333333333,0.2,0.25,5.0
+Candidal Balanoposthitis,0.3333333333333333,0.2,0.25,5.0
+Photodermatitis,0.2,0.2857142857142857,0.23529411764705882,7.0
+Post-Inflammatory hyperpigmentation,0.18181818181818182,0.2857142857142857,0.2222222222222222,7.0
+Contact Dermatitis,0.2222222222222222,0.125,0.16,16.0
+Actinic Dermatitis,0.0,0.0,0.0,1.0
+Chronic actinic dermatitis,0.0,0.0,0.0,2.0
+Cherry Angioma,0.0,0.0,0.0,1.0
+Androgenic Alopecia,0.0,0.0,0.0,3.0
+Diaper Dermatitis,0.0,0.0,0.0,1.0
+Epidermolysis Bullosa,0.0,0.0,0.0,1.0
+Epidermal nevus,0.0,0.0,0.0,1.0
+Fissure Foot,0.0,0.0,0.0,1.0
+Folliculitis,0.0,0.0,0.0,3.0
+Hypertrophic Scar / Keloid,0.0,0.0,0.0,2.0
+Hypertrophic Lichen Planus,0.0,0.0,0.0,1.0
+Hansen's disease,0.0,0.0,0.0,1.0
+Impetigo,0.0,0.0,0.0,3.0
+Idiopathic Guttate Hypomelanosis,0.0,0.0,0.0,1.0
+Infected Tinea,0.0,0.0,0.0,1.0
+Insect Bite Reaction,0.0,0.0,0.0,5.0
+Keloid Milium,0.0,0.0,0.0,1.0
+Nevocytic nevus,0.0,0.0,0.0,2.0
+Molluscum Contagiosum,0.0,0.0,0.0,2.0
+Lichen sclerosus,0.0,0.0,0.0,1.0
+Milia,0.0,0.0,0.0,1.0
+Keratoderma,0.0,0.0,0.0,1.0
+Kumkum Dermatitis,0.0,0.0,0.0,1.0
+Keratosis pilaris,0.0,0.0,0.0,1.0
+Hemangioma,0.0,0.0,0.0,1.0
+Phimosis,0.0,0.0,0.0,1.0
+Phytophotodermatitis,0.0,0.0,0.0,2.0
+Paederus dermatitis,0.0,0.0,0.0,1.0
+Pruritic dermatitis,0.0,0.0,0.0,1.0
+Prurigo Simplex,0.0,0.0,0.0,2.0
+Prurigo,0.0,0.0,0.0,1.0
+Pityriasis rosea,0.0,0.0,0.0,1.0
+Port wine stain,0.0,0.0,0.0,1.0
+Scar Condition,0.0,0.0,0.0,2.0
+Pustular Scabies,0.0,0.0,0.0,1.0
+Post-Inflammatory hypopigmentation,0.0,0.0,0.0,1.0
+Steroid Induced Facies,0.0,0.0,0.0,1.0
+Striae,0.0,0.0,0.0,1.0
+Sun damaged skin,0.0,0.0,0.0,1.0
+Sunburn,0.0,0.0,0.0,1.0
+Sweat Dermatitis,0.0,0.0,0.0,2.0
+Tinea,0.0,0.0,0.0,3.0
+Textile Dermatitis,0.0,0.0,0.0,2.0
+Seborrheic Keratosis,0.0,0.0,0.0,1.0
+Trichoepithelioma,0.0,0.0,0.0,1.0
+Urticarial vasculitis,0.0,0.0,0.0,1.0
+Ulcer,0.0,0.0,0.0,1.0
+Tinea pedis,0.0,0.0,0.0,1.0
+Viral exanthem,0.0,0.0,0.0,1.0

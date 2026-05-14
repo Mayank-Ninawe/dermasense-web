@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# DermaSense Monorepo  
+  
+Welcome to the DermaSense project repository! This project is organized into three distinct applications/domains for better separation of concerns:  
+  
+- `frontend/` - Contains the Next.js web application (React, Tailwind CSS).  
+- `backend/` - Contains the FastAPI application for processing and inference logic.  
+- `ml/` - Contains the machine learning pipeline, data, notebooks, and models (PyTorch/Swin Transformer).  
+  
+## Quick Start  
+You can run the separate parts of the application as follows:  
+  
+- **Frontend:** Open a terminal in `frontend/`, run `npm i` (if required) and `npm run dev`.  
+- **Backend:** Open a terminal in `backend/`, activate your python environment and run `uvicorn app.main:app --reload`.  
+  
+For domain-specific details, please see the `README.md` files located in each respective directory. 

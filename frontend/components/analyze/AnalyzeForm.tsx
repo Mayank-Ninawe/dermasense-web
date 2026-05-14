@@ -29,7 +29,7 @@ const symptomOptions = [
   "Size increase", "Scaling", "Discharge", "None",
 ];
 
-export default function AnalyzeForm({ onSubmit }: { onSubmit: (data: FormData) => void }) {
+export default function AnalyzeForm({ onSubmit }: { onSubmit: (data: FormData, imageDataUrl: string) => void }) {
   const [image, setImage] = useState<string | null>(null);
   const [age, setAge] = useState(35);
   const [gender, setGender] = useState("");
@@ -144,6 +144,7 @@ export default function AnalyzeForm({ onSubmit }: { onSubmit: (data: FormData) =
                 className="w-full h-full object-cover"
               />
               <button
+                suppressHydrationWarning
                 onClick={() => setImage(null)}
                 className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center"
                 style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
@@ -210,8 +211,9 @@ export default function AnalyzeForm({ onSubmit }: { onSubmit: (data: FormData) =
               Gender
             </p>
             <div className="flex gap-3">
-              {["Male", "Female", "Other"].map((g) => (
+              {["Male", "Female"].map((g) => (
                 <button
+                  suppressHydrationWarning
                   key={g}
                   onClick={() => setGender(g)}
                   className="flex-1 py-2.5 rounded-xl text-sm font-medium transition-colors"
@@ -241,6 +243,7 @@ export default function AnalyzeForm({ onSubmit }: { onSubmit: (data: FormData) =
             <div className="grid grid-cols-2 gap-2">
               {skinTones.map((t) => (
                 <button
+                  suppressHydrationWarning
                   key={t.value}
                   onClick={() => setSkinTone(t.value)}
                   className="flex items-center gap-3 p-3 rounded-xl text-left transition-all"
@@ -280,6 +283,7 @@ export default function AnalyzeForm({ onSubmit }: { onSubmit: (data: FormData) =
             <div className="flex flex-wrap gap-2">
               {bodyLocations.map((loc) => (
                 <button
+                  suppressHydrationWarning
                   key={loc}
                   onClick={() => setBodyLocation(loc)}
                   className="px-3 py-1.5 rounded-full text-xs font-medium transition-colors"
@@ -310,6 +314,7 @@ export default function AnalyzeForm({ onSubmit }: { onSubmit: (data: FormData) =
             <div className="flex flex-col gap-2">
               {durations.map((d) => (
                 <button
+                  suppressHydrationWarning
                   key={d}
                   onClick={() => setDuration(d)}
                   className="px-4 py-2.5 rounded-xl text-sm text-left transition-colors"
@@ -340,6 +345,7 @@ export default function AnalyzeForm({ onSubmit }: { onSubmit: (data: FormData) =
             <div className="flex flex-wrap gap-2">
               {symptomOptions.map((s) => (
                 <button
+                  suppressHydrationWarning
                   key={s}
                   onClick={() => toggleSymptom(s)}
                   className="px-3 py-1.5 rounded-full text-xs transition-colors"
@@ -359,10 +365,32 @@ export default function AnalyzeForm({ onSubmit }: { onSubmit: (data: FormData) =
         </div>
       </div>
 
+      {image && !canSubmit && (
+        <div
+          className="text-xs px-4 py-2 rounded-lg"
+          style={{
+            backgroundColor: "var(--color-warning-highlight)",
+            color: "var(--color-warning)",
+            border: "1px solid var(--color-warning)",
+          }}
+        >
+          Still needed:{" "}
+          {[
+            !gender && "Gender",
+            !skinTone && "Skin Tone",
+            !bodyLocation && "Body Location",
+            !duration && "Duration",
+          ]
+            .filter(Boolean)
+            .join(", ")}
+        </div>
+      )}
+
       {/* Submit */}
       <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <button
-          onClick={() => canSubmit && onSubmit({ age, gender, skinTone, bodyLocation, duration, symptoms })}
+          suppressHydrationWarning
+          onClick={() => canSubmit && image && onSubmit({ age, gender, skinTone, bodyLocation, duration, symptoms }, image)}
           disabled={!canSubmit}
           className="px-8 py-3.5 rounded-full text-sm font-medium transition-opacity"
           style={{

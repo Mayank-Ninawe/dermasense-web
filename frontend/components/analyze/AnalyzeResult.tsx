@@ -2,21 +2,35 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import type { FormData } from "@/components/analyze/types";
+import type { PredictResult } from "@/lib/api";
 
-const differentials = [
-  { condition: "Seborrheic Keratosis", confidence: 94.2 },
-  { condition: "Melanocytic Nevus", confidence: 3.1 },
-  { condition: "Dermatofibroma", confidence: 1.8 },
-];
+function getConfidenceLabel(confidence: number) {
+  if (confidence >= 70) return "HIGH";
+  if (confidence >= 40) return "MODERATE";
+  return "LOW";
+}
+
+function getConfidenceBadgeStyle(confidence: number) {
+  if (confidence >= 70) {
+    return { backgroundColor: "#dcfce7", color: "#166534" };
+  }
+  if (confidence >= 40) {
+    return { backgroundColor: "#fef3c7", color: "#92400e" };
+  }
+  return { backgroundColor: "#fee2e2", color: "#991b1b" };
+}
 
 export default function AnalyzeResult({
   formData,
+  result,
   onReset,
 }: {
   formData: FormData;
+  result: PredictResult;
   onReset: () => void;
 }) {
   const [activeTab, setActiveTab] = useState<"heatmap" | "original">("heatmap");
+  const differentials = result.differentials;
 
   return (
     <motion.div
@@ -181,12 +195,9 @@ export default function AnalyzeResult({
               </p>
               <span
                 className="text-xs font-medium px-2.5 py-1 rounded-full"
-                style={{
-                  backgroundColor: "#dcfce7",
-                  color: "#166534",
-                }}
+                style={getConfidenceBadgeStyle(result.primary_confidence)}
               >
-                MILD
+                {getConfidenceLabel(result.primary_confidence)}
               </span>
             </div>
             <h2
@@ -197,7 +208,7 @@ export default function AnalyzeResult({
                 color: "var(--color-text)",
               }}
             >
-              Seborrheic Keratosis
+              {result.primary_condition}
             </h2>
             {/* Confidence bar */}
             <div className="flex justify-between items-center mb-1.5">
@@ -211,7 +222,7 @@ export default function AnalyzeResult({
                   color: "var(--color-primary)",
                 }}
               >
-                94.2%
+                {result.primary_confidence}%
               </span>
             </div>
             <div
@@ -222,7 +233,7 @@ export default function AnalyzeResult({
                 className="h-full rounded-full"
                 style={{ backgroundColor: "var(--color-primary)" }}
                 initial={{ width: 0 }}
-                animate={{ width: "94.2%" }}
+                animate={{ width: `${result.primary_confidence}%` }}
                 transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               />
             </div>
