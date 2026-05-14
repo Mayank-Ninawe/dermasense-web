@@ -1,0 +1,88 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex a0330ca..05c74b4 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -1,15 +1,68 @@[m
+[31m-# DermaSense Monorepo  [m
+[31m-  [m
+[31m-Welcome to the DermaSense project repository! This project is organized into three distinct applications/domains for better separation of concerns:  [m
+[31m-  [m
+[31m-- `frontend/` - Contains the Next.js web application (React, Tailwind CSS).  [m
+[31m-- `backend/` - Contains the FastAPI application for processing and inference logic.  [m
+[31m-- `ml/` - Contains the machine learning pipeline, data, notebooks, and models (PyTorch/Swin Transformer).  [m
+[31m-  [m
+[31m-## Quick Start  [m
+[31m-You can run the separate parts of the application as follows:  [m
+[31m-  [m
+[31m-- **Frontend:** Open a terminal in `frontend/`, run `npm i` (if required) and `npm run dev`.  [m
+[31m-- **Backend:** Open a terminal in `backend/`, activate your python environment and run `uvicorn app.main:app --reload`.  [m
+[31m-  [m
+[31m-For domain-specific details, please see the `README.md` files located in each respective directory. [m
+[32m+[m[32m# DermaSense[m
+[32m+[m
+[32m+[m[32mDermaSense is a monorepo containing a machine learning pipeline for skin image analysis, a FastAPI inference backend, and a Next.js frontend user interface.[m
+[32m+[m
+[32m+[m[32m## Project Structure[m
+[32m+[m
+[32m+[m[32m```text[m
+[32m+[m[32m.[m
+[32m+[m[32m├── backend/         # FastAPI application serving ML predictions[m
+[32m+[m[32m├── frontend/        # Next.js 16 web application (React, Tailwind)[m
+[32m+[m[32m├── ml/              # PyTorch training pipeline, notebooks, and models[m
+[32m+[m[32m└── inspect_model.py # Model inspection utility[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m## Quick Start[m
+[32m+[m
+[32m+[m[32m### 1. Backend (FastAPI)[m
+[32m+[m[32mThe backend exposes the inference API endpoints.[m
+[32m+[m
+[32m+[m[32m```bash[m
+[32m+[m[32mcd backend[m
+[32m+[m[32mpython -m venv .venv[m
+[32m+[m
+[32m+[m[32m# Activate the virtual environment:[m
+[32m+[m[32m# Windows: .venv\Scripts\activate[m
+[32m+[m[32m# macOS/Linux: source .venv/bin/activate[m
+[32m+[m
+[32m+[m[32mpip install -r requirements.txt[m
+[32m+[m[32muvicorn app.main:app --reload[m
+[32m+[m[32m```[m
+[32m+[m[32m*Note: Create an `.env` file in `backend/` if your configuration requires specific environment variables.*[m
+[32m+[m
+[32m+[m[32m### 2. Frontend (Next.js)[m
+[32m+[m[32mThe frontend provides the user-facing web application.[m
+[32m+[m
+[32m+[m[32m```bash[m
+[32m+[m[32mcd frontend[m
+[32m+[m[32mnpm install[m
+[32m+[m[32mnpm run dev[m
+[32m+[m[32m```[m
+[32m+[m[32m*Note: Set up an `.env.local` file in `frontend/` if environment variables are required (e.g., API endpoints).*[m
+[32m+[m
+[32m+[m[32m### 3. Machine Learning (PyTorch)[m
+[32m+[m[32mThe `ml/` directory contains data processing scripts, PyTorch models, and Jupyter notebooks.[m
+[32m+[m
+[32m+[m[32m```bash[m
+[32m+[m[32mcd ml[m
+[32m+[m[32mpython -m venv .venv[m
+[32m+[m
+[32m+[m[32m# Activate the virtual environment:[m
+[32m+[m[32m# Windows: .venv\Scripts\activate[m
+[32m+[m[32m# macOS/Linux: source .venv/bin/activate[m
+[32m+[m
+[32m+[m[32mpip install -r requirements.txt[m
+[32m+[m[32m```[m
+[32m+[m[32mTo explore the data or model training, launch Jupyter:[m
+[32m+[m[32m```bash[m
+[32m+[m[32mjupyter notebook[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m## Git / Repo Notes[m
+[32m+[m
+[32m+[m[32mLarge files, model artifacts, and local environments are intentionally excluded from version control to maintain a lightweight repository. You should expect the following to be ignored by `.gitignore`:[m
+[32m+[m[32m- **Dependencies:** `node_modules/`, `.venv/`, `.next/`[m
+[32m+[m[32m- **Secrets:** `.env`, `.env.local`[m
+[32m+[m[32m- **Data & Artifacts:** Dataset archives (`.zip`), extracted RAW images (`ml/data/raw/DATASET/`), and PyTorch checkpoints (`ml/checkpoints/*.pth`)[m
+[32m+[m
+[32m+[m[32mWhen contributing to the ML pipeline, ensure you place any downloaded datasets or checkpoint files in their respective locally ignored directories.[m[41m [m
