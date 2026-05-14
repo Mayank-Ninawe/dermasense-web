@@ -76,4 +76,5 @@ ml/checkpoints/*.pt
 *.pth
 *.pt
 ml/data/raw/DATASET/
+ml/data/*.zip
 .ipynb_checkpoints/
